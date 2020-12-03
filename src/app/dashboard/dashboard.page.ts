@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPage implements OnInit {
 
-  constructor() { }
+    constructor(
+        private fingerprint: FingerprintAIO
+    ) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+    public login(): void {
+        this.fingerprint.loadBiometricSecret({
+
+        })
+    }
 
 }
